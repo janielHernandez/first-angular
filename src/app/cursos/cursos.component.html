@@ -1,0 +1,12 @@
+<button type="button" class="btn btn-dark" (click)="onClickHabilitarCursos()">
+  {{habilitarCursos? 'Ocultar cursos': 'Mostrar cursos'}}
+</button>
+
+<div class="card" *ngIf="habilitarCursos">
+  <div class="card-body">
+    <h4 class="card-tittle">Listado de cursos</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let curso of cursos">{{curso}}</li>
+    </ul>
+  </div>
+</div>
