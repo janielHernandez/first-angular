@@ -1,22 +1,29 @@
 <div class="card mb-3">
-  <div class="card-header">Client</div>
+  <div class="card-header">List of clients</div>
   <div class="card-body text-dark">
-    <h5 class="card-title">List of clients</h5>
+    <div class="text-left my-2">
+      <button class="btn btn-success" type="button" routerLink="/clients/create">
+          Create Client
+      </button>
+    </div>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>First name</th>
-          <th>Last name</th>
           <th>Email</th>
           <th>Address</th>
+          <th>phone</th>
+          <th>Date of insert</th>
+
         </tr>
       </thead>
       <tbody *ngFor="let client of clients">
         <tr>
           <td>{{client.name}}</td>
-          <td>{{client.lastName}}</td>
           <td>{{client.email}}</td>
           <td>{{client.address}}</td>
+          <td>{{client.phone}}</td>
+          <td>{{client.insertDate}}</td>
         </tr>
         </tbody>
       </table>

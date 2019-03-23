@@ -8,13 +8,17 @@ import { SliceComponent } from './slice/slice.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { ClientComponent } from './client/client.component';
 import {ClientService} from './client/client.service';
+import {FormComponent} from './client/form.component';
 import {RouterModule, Route} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 const routes: Route[] = [
   {path: '', redirectTo: '/clients', pathMatch: 'full'},
   {path: 'courses', component: CursosComponent},
-  {path: 'clients', component: ClientComponent}
-]
+  {path: 'clients', component: ClientComponent},
+  {path: 'clients/create', component: FormComponent}
+];
 
 @NgModule({
   declarations: [
@@ -23,10 +27,13 @@ const routes: Route[] = [
     FooterComponent,
     SliceComponent,
     CursosComponent,
-    ClientComponent
+    ClientComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ClientService],

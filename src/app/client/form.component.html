@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header">
+    {{title}}
+  </div>
+
+  <div class="card-body">
+    <form (ngSubmit)="create()">
+      <div class="form-group">
+        <label for="name" class="control-label">Name</label>
+          <input name="name" type="text" placeholder="Enter Name" class="form-control" [(ngModel)] = "c.name"/>
+      </div>
+      <div class="form-group">
+        <label for="address" class="control-label">Address</label>
+          <input name="address" type="text" placeholder="Enter address" class="form-control" [(ngModel)] = "c.address"/>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="control-label">Email</label>
+        <input name="email" type="email" class="form-control" placeholder="example@exaple.com" [(ngModel)] = "c.email"/>
+      </div>
+
+      <div class="form-group">
+        <label for="phone" class="control-label">Phone</label>
+        <input name="phone" type="text" class="form-control" placeholder="Enter Phone Number" [(ngModel)] = "c.phone" />
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn  btn-primary" role="button">
+            Create
+          </button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>
