@@ -2,11 +2,18 @@
   <div class="card-header">List of clients</div>
   <div class="card-body text-dark">
     <div class="text-left my-2">
-      <button class="btn btn-success" type="button" routerLink="/clients/create">
-          Create Client
-      </button>
+      <!--<button class="btn btn-light" type="button" routerLink="/clients/create" id="create-client">-->
+        <i class="material-icons" id="create-client"
+           style="font-size:50px; color: #307bff"
+           routerLink="/clients/create">add_box</i>
+      <!--</button>-->
     </div>
-    <table class="table table-bordered table-striped">
+
+    <div class="alert alert-info" *ngIf="clients?.length==0">
+      There aren't registers, Press <strong>Create Client</strong>  button to create one.
+    </div>
+
+    <table class="table table-hover" *ngIf="clients?.length>0">
       <thead>
         <tr>
           <th>First name</th>
@@ -14,18 +21,29 @@
           <th>Address</th>
           <th>phone</th>
           <th>Date of insert</th>
-
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody *ngFor="let client of clients">
-        <tr>
+        <tr (click)="popup(client)" style="cursor: pointer;">
           <td>{{client.name}}</td>
           <td>{{client.email}}</td>
           <td>{{client.address}}</td>
           <td>{{client.phone}}</td>
           <td>{{client.insertDate}}</td>
+          <td>
+              <button type="button" name="edit" [routerLink]="['/clients/create', client.id]" class="btn btn-light">
+                <i class="material-icons" style="font-size:36px">mode_edit</i>
+              </button>
+            <button type="button" name="delete" (click)="delete(client)"  class="btn btn-light">
+              <i class="material-icons" style="font-size:36px;color:red">delete_forever</i>
+            </button>
+
+          </td>
         </tr>
         </tbody>
       </table>
   </div>
 </div>
+

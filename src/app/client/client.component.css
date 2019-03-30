@@ -1,0 +1,7 @@
+#create-client {
+  bottom: 65px;
+  right: 10px;
+  position: fixed;
+  z-index: 3000;
+  cursor: pointer;
+}
